@@ -1,0 +1,13 @@
+---
+- name: testing ubuntu file
+  hosts: localhost
+  tasks:
+    - name: test version of ubuntu
+      command: cat /etc/os-release
+      register: version
+    - name: print the value of version
+      debug:
+        msg: "{{ version.stdout }}"
+    - name: including role
+      include_role:
+         name: rolename
